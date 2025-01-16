@@ -1,0 +1,9 @@
+pom.xml
+Run.bat
+Portabilidad_project.jar
+target/*
+out/*
+META-INF/*
+data/*
+.idea/*
+.git/*
