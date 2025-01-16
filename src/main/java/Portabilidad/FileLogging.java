@@ -40,7 +40,5 @@ public class FileLogging extends Check {
         if (desktop.isSupported(Desktop.Action.OPEN)) {
             desktop.open(OpenFile);
         }
-
     }
-
 }
