@@ -2,10 +2,10 @@ package Portabilidad;
 
 import java.awt.event.KeyEvent;
 
-public class SheetHandling extends Check {
+public class FileHandling extends Check {
 
 
-    public SheetHandling() throws Exception {
+    public FileHandling() throws Exception {
     }
 
     public void RenameFile() throws Exception{

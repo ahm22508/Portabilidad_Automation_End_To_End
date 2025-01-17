@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.Scanner;
 
-public class SheetRevision extends Check{
+public class GetFile extends Check{
     private String ID_Case;
     private  WebDriverWait wait;
     private  WebDriver driver;
@@ -20,7 +20,7 @@ public class SheetRevision extends Check{
     private final By IntroduceCase = By.xpath("//input[@class='appmagic-text mousetrap block-undo-redo']");
     private final By PanIcon = By.xpath("(//div[@class='powerapps-icon no-focus-outline'])[4]");
 
-    public SheetRevision()throws Exception{
+    public GetFile()throws Exception{
     }
     public void GetDriver(){
         driver = new EdgeDriver();
@@ -88,21 +88,21 @@ public class SheetRevision extends Check{
         driver.quit();
     }
      public static void main(String[] args)throws  Exception{
-  SheetRevision sheetRevision = new SheetRevision();
-    SheetHandling sheetHandling = new SheetHandling();
-    sheetRevision.GetIdCase();
-    sheetRevision.GetDriver();
-    sheetRevision.GoToVCTool();
-    sheetRevision.InitiateVCTool();
+    GetFile getFile = new GetFile();
+    FileHandling FileHandling = new FileHandling();
+    getFile.GetIdCase();
+    getFile.GetDriver();
+    getFile.GoToVCTool();
+    getFile.InitiateVCTool();
     Thread.sleep(1500);
-    sheetRevision.EnterToCases();
-    sheetRevision.IntroduceCase();
-    sheetRevision.GetSpecificCase();
-    sheetRevision.DownloadFile();
-    sheetRevision.ShowFile();
+    getFile.EnterToCases();
+    getFile.IntroduceCase();
+    getFile.GetSpecificCase();
+    getFile.DownloadFile();
+    getFile.ShowFile();
     Thread.sleep(500);
-    sheetRevision.Exit();
-    sheetHandling.RenameFile();
-    sheetHandling.MoveFile();
+    getFile.Exit();
+    FileHandling.RenameFile();
+    FileHandling.MoveFile();
     }
 }
