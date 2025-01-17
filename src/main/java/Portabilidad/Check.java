@@ -3,7 +3,6 @@ package Portabilidad;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.sikuli.script.Location;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
@@ -29,17 +28,6 @@ public class Check {
     }
 
     public void generalCheck() throws Exception {
-
-        Pattern ClarifyImage = new Pattern("C:\\Portabilidad_Auto_End2End\\img\\Clarify.png");
-
-        Bot.keyPress(KeyEvent.VK_WINDOWS);
-        Bot.keyPress(KeyEvent.VK_TAB);
-        pcScreen.wait(ClarifyImage, 10);
-        Location LocationImage = pcScreen.find(ClarifyImage).getTarget();
-        Location adjustedLocation = new Location(LocationImage.getX(), LocationImage.getY() + 50);
-        adjustedLocation.click();
-        Bot.keyRelease(KeyEvent.VK_WINDOWS);
-        Bot.keyRelease(KeyEvent.VK_TAB);
 
         //Press on Select
         Thread.sleep(500);
@@ -136,6 +124,29 @@ public class Check {
             }
             if (!pcScreen.has(RecognizePopUp)) {
                 Lineas.createCell(1).setCellValue("Preactivada");
+            }
+            CleanCheck();
+        }
+    }
+    public void CheckIfIsNotPA() throws Exception{
+        for (Row Lineas : FileLogging.getSheet()) {
+            Cell LineaCell = Lineas.getCell(0);
+            if (LineaCell != null) {
+                String Linea = LineaCell.getStringCellValue();
+                for (char digit : Linea.toCharArray()) {
+                    getRobot().keyPress(KeyEvent.getExtendedKeyCodeForChar(digit));
+                }
+            }
+            ExecuteCheck();
+            if (pcScreen.has(RecognizePopUp)) {
+                Lineas.createCell(2).setCellValue("No Preactivada(Not_Error)");
+                //Clean Error.
+                Bot.mouseMove(764, 475);
+                Bot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
+                Bot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
+            }
+            if (!pcScreen.has(RecognizePopUp)) {
+                Lineas.createCell(2).setCellValue("Preactivada(Error)");
             }
             CleanCheck();
         }

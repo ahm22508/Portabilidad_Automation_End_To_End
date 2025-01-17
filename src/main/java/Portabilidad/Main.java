@@ -88,6 +88,11 @@ public class Main extends Application {
                 FileLogging fileLog = new FileLogging();
                 prepare.prepareSystem();
                 check.generalCheck();
+                check.PressOnPA();
+                check.PressOnIdentificadorDeServicio();
+                check.CheckIfIsNotPA();
+                check.EndCheck();
+                check.generalCheck();
                 check.PressOnAC();
                 check.PressOnIdentificadorDeServicio();
                 check.CheckAc();

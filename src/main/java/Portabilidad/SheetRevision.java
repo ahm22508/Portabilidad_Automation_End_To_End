@@ -24,7 +24,7 @@ public class SheetRevision extends Check{
     }
     public void GetDriver(){
         driver = new EdgeDriver();
-        wait = new WebDriverWait(driver , Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver , Duration.ofSeconds(20));
     }
     public void Switching(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("iframe")));
@@ -68,29 +68,28 @@ public class SheetRevision extends Check{
         SwitchingOff();
     }
     public void DownloadFile()throws Exception{
-     Thread.sleep(1500);
+     Thread.sleep(3500);
      getRobot().mouseMove(1331, 786);
      getRobot().mousePress(KeyEvent.BUTTON1_DOWN_MASK);
      getRobot().mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
-     Thread.sleep(1000);
+     Thread.sleep(1500);
      getRobot().mouseMove(441, 516);
      getRobot().mousePress(KeyEvent.BUTTON1_DOWN_MASK);
      getRobot().mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
     }
     public void ShowFile()throws Exception{
-        Thread.sleep(1500);
+        Thread.sleep(4500);
         getRobot().mouseMove(1302, 134);
-        Thread.sleep(500);
+        Thread.sleep(1000);
         getRobot().mousePress(KeyEvent.BUTTON1_DOWN_MASK);
         getRobot().mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
     }
     public void Exit(){
         driver.quit();
     }
-
-
      public static void main(String[] args)throws  Exception{
-    SheetRevision sheetRevision = new SheetRevision();
+  SheetRevision sheetRevision = new SheetRevision();
+    SheetHandling sheetHandling = new SheetHandling();
     sheetRevision.GetIdCase();
     sheetRevision.GetDriver();
     sheetRevision.GoToVCTool();
@@ -103,5 +102,7 @@ public class SheetRevision extends Check{
     sheetRevision.ShowFile();
     Thread.sleep(500);
     sheetRevision.Exit();
+    sheetHandling.RenameFile();
+    sheetHandling.MoveFile();
     }
 }
