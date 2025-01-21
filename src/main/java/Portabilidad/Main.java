@@ -1,5 +1,6 @@
 package Portabilidad;
 
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 @SuppressWarnings("ALL")
 public class Main extends Application {
     @Override
-    public void start(Stage frame){
+    public void start(Stage frame) {
 
         frame = new Stage();
         AnchorPane Container = new AnchorPane();
@@ -37,7 +38,7 @@ public class Main extends Application {
         // Add Label to PA.
         Label labelPA = new Label("Chequear PA");
         AnchorPane.setLeftAnchor(labelPA, 20.0);
-        AnchorPane.setTopAnchor(labelPA , 110.0);
+        AnchorPane.setTopAnchor(labelPA, 110.0);
         labelPA.setFont(new Font("Arial", 14));
         labelPA.setTextFill(Color.BLACK);
         labelPA.setStyle("-fx-font-weight: bold;");
@@ -47,13 +48,13 @@ public class Main extends Application {
         labelAC.setFont(new Font("Arial", 14));
         labelAC.setTextFill(Color.BLACK);
         labelAC.setStyle("-fx-font-weight: bold;");
-        AnchorPane.setRightAnchor(labelAC , 50.0);
+        AnchorPane.setRightAnchor(labelAC, 50.0);
         AnchorPane.setTopAnchor(labelAC, 110.0);
         Container.getChildren().add(labelAC);
 
         //Add PA Button
         Button ButtonPA = new Button("PA");
-        ButtonPA.setOnAction(event->{
+        ButtonPA.setOnAction(event -> {
             try {
                 Check check = new Check();
                 Preparation prepare = new Preparation();
@@ -67,20 +68,19 @@ public class Main extends Application {
                 fileLog.SaveFile();
                 fileLog.CloseFile();
                 fileLog.ShowFile();
-            }
-            catch (Exception e){
-                System.out.println("Exception Occured: " +e.getMessage().toString());
+            } catch (Exception e) {
+                System.out.println("Exception Occured: " + e.getMessage().toString());
             }
         });
         AnchorPane.setRightAnchor(ButtonPA, 320.0);
-        AnchorPane.setTopAnchor(ButtonPA , 155.0);
+        AnchorPane.setTopAnchor(ButtonPA, 155.0);
         Container.getChildren().add(ButtonPA);
 
         //Add AC Button
 
         Button ButtonAC = new Button("AC");
         AnchorPane.setTopAnchor(ButtonAC, 155.0);
-        AnchorPane.setLeftAnchor(ButtonAC , 290.0);
+        AnchorPane.setLeftAnchor(ButtonAC, 290.0);
         ButtonAC.setOnAction(event -> {
             try {
                 Check check = new Check();
@@ -100,9 +100,8 @@ public class Main extends Application {
                 fileLog.SaveFile();
                 fileLog.CloseFile();
                 fileLog.ShowFile();
-            }
-            catch (Exception E){
-                System.out.println("Exception Occured: " +E.getMessage().toString());
+            } catch (Exception E) {
+                System.out.println("Exception Occured: " + E.getMessage().toString());
             }
         });
         Container.getChildren().add(ButtonAC);
@@ -114,9 +113,8 @@ public class Main extends Application {
         frame.setScene(scen);
         frame.show();
     }
-
     public static void main(String[] args) throws Exception {
 
-        launch(args);
+           launch(args);
     }
 }

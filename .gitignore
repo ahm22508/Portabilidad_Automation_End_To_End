@@ -4,7 +4,7 @@ Portabilidad_project.jar
 target/*
 out/*
 META-INF/*
-data/*
+img/data/*
 .idea/*
 .git/*
 img/*

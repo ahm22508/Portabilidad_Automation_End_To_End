@@ -1,5 +1,6 @@
 package Portabilidad;
 
+
 import org.sikuli.script.Location;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -19,7 +20,7 @@ public class Preparation {
     }
 
     public void prepareSystem() throws  Exception{
-        int i = 2;
+        int i = 3;
         String FakeLine = "666666666";
         while (i > 0) {
             Pattern ClarifyImage = new Pattern("C:\\Portabilidad_Auto_End2End\\img\\Clarify.png");
